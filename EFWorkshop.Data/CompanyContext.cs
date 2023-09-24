@@ -1,5 +1,6 @@
 ﻿using EFWorkshop.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,15 @@ namespace EFWorkshop.Data
 {
     public class CompanyContext : DbContext
     {
-        private const string ConnectionString = "Data Source=DESKTOP-FLUTGQS\\SQLEXPRESS;Database=CompanyDB;Integrated Security=true;TrustServerCertificate=true";
-        
+        private const string ConnectionString = "Data Source=DESKTOP-3B7LA0U\\SQLEXPRESS;Database=CompanyDB;Integrated Security=true;TrustServerCertificate=true";
+
         public DbSet<Employee> Employees { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConnectionString);
-
+            optionsBuilder.UseSqlServer(ConnectionString)
+            .LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging();
 
 
 
