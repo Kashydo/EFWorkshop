@@ -11,13 +11,19 @@ namespace EFWorkshop.Data
 {
     public class CompanyContext : DbContext
     {
-        private const string ConnectionString = "Data Source=DESKTOP-EF0N0IS\\SQLEXPRESS;Database=Company;Integrated Security=true;TrustServerCertificate=true";
-        
+        private const string ConnectionString = "Data Source=DESKTOP-3B7LA0U\\SQLEXPRESS;Database=Company;Integrated Security=true;TrustServerCertificate=true";
+
         public DbSet<Employee> Employees { get; set; }
-        
+
+        public CompanyContext(DbContextOptions options) : base(options)
+        {
+
+        }
+
+        public CompanyContext() { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(!optionsBuilder.IsConfigured)
+            if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(ConnectionString)
                 .LogTo(Console.WriteLine, LogLevel.Information)
