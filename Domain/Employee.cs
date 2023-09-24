@@ -9,9 +9,10 @@ namespace EFWorkshop.Domain
 {
     public class Employee
     {
-
+        
         public int Id { get; set; }
-        [Required] 
+        //[Required]
+        //[MaxLength(50)]
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Salary { get; set; }
@@ -21,8 +22,11 @@ namespace EFWorkshop.Domain
             return $"{FirstName}, {LastName} zarabia {Salary}";
         }
 
-        public bool NameStartsWith(string letter) { return FirstName.StartsWith(letter); }
+        public bool NameStartsWith(string letter)
+        {
+            return FirstName.StartsWith(letter);
+        }
     }
 
-
+    
 }
