@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFWorkshop.Data.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    [Migration("20230924092551_initial")]
+    [Migration("20230924094616_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -34,7 +34,7 @@ namespace EFWorkshop.Data.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
