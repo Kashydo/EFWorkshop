@@ -16,10 +16,11 @@ namespace EFWorkshop.Domain
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Salary { get; set; }
-
+        public PassportInfo PassportInfo { get; set; }
+        public List <Project> Projects { get; set; }
         public override string ToString()
         {
-            return $"{FirstName}, {LastName} zarabia {Salary}";
+            return $"{Id}, {FirstName}, {LastName} zarabia {Salary}, {PassportInfo}";
         }
 
         public bool NameStartsWith(string letter)

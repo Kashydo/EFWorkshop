@@ -10,6 +10,11 @@ namespace EFWorkshop.IUTest
         {
             var companyContext = new CompanyContext();
             var employees = companyContext.Employees;
+            var employee2 = employees.Where(x => x.Id == 2).Include(x => x.PassportInfo).Include(x => x.Projects);
+            foreach (var employee in employee2) {
+                Console.WriteLine(employee);
+            }
+
             // var e = employees.FirstOrDefault(x => x.FirstName.StartsWith("Z"));
             // var e2 = employees.Find(2);
             // var e = employees.First();
@@ -24,10 +29,10 @@ namespace EFWorkshop.IUTest
             //var emp = new Employee { FirstName = "Dżon", LastName = "Lennon", Salary = "4000" };
             //companyContext.Employees.Add(emp);
 
-            var c = employees.First(x => x.Id == 5);
-            companyContext.Employees.Remove(c);
+            //var c = employees.First(x => x.Id == 5);
+            //companyContext.Employees.Remove(c);
 
-            companyContext.SaveChanges();
+            //companyContext.SaveChanges();
 
             //foreach (var employee in employees)
             //{ 
