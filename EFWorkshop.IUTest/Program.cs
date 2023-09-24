@@ -13,10 +13,14 @@ namespace EFWorkshop.IUTest
             //var e = employees.FirstOrDefault(x => x.Id == 2);
             //var e2 = employees.FirstOrDefault(x => x.Id == 2);
             //var e3 = employees.FirstOrDefault(x => x.Id == 2);
-            var e4 = employees.Find(2);
-            var e5 = employees.Find(2);
-            var e6 = employees.Find(2);
+            //var b = employees.Find(4);
+            //b.FirstName = "Marek";
+            //var emp = new Employee { FirstName = "Joanna", LastName = "Mak", Salary = "3" };
+            //companyContext.Employees.Add(emp);
 
+            var c = employees.Find(4);
+            companyContext.Employees.Remove(c);
+            companyContext.SaveChanges();
         }
     }
 }
